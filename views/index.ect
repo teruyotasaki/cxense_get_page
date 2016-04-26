@@ -1,0 +1,64 @@
+<% extend 'layout' %>
+<p>Welcome to <%= @title %> by ECT</p>
+
+
+<% if @items?.length : %>
+  <% for item in @items : %>
+    <ul>
+    <%= item.text %>
+    </ul>
+  <% end %>
+<% end %>
+
+  <fieldset>
+<p>該当ページ取得</p>
+
+<form method="POST" action="/create">
+  <fieldset>
+    <p><label>url</label><input type="text" name="url" value="http://52.69.187.215/press/2016/"></p>
+    <p><label>depth</label><input type="text" name="depth" value="3"></p>
+  </fieldset>
+  <input type="submit" value="Post">
+</form>
+  </fieldset>
+
+  <fieldset>
+<p>該当ページにタグ追加</p>
+
+<form method="POST" action="/inserttag">
+    <fieldset>
+      <p><label>tag</label>
+         <input type="search" id="form_contents_1" name="content_1" list="form_content_1" placeholder="検索するタグの種類" autocomplete="on">
+           <datalist id="form_content_1">
+           <option value="body">body</option>
+           <option value="a">a</option>
+           <option value="#press">#press</option>
+           <option value=".boxClick">.boxClick</option>
+           <option value="#corporateprofile">#corporateprofile</option>
+           </datalist>
+      </p>
+      <p>insert tag</p>
+      <p><textarea name="insert_tag_1" cols=40 rows=4><li class="plum">Plumここに任意のHTMLを入れる。1個目</li></textarea></p>
+    </fieldset>
+    <fieldset>
+      <p><label>tag</label>
+         <input type="search" id="form_contents_2" name="content_2" list="form_content_2" placeholder="検索するタグの種類" autocomplete="on">
+           <datalist id="form_content_2">
+           <option value="body">body</option>
+           <option value="a">a</option>
+           <option value="#press">#press</option>
+           <option value=".boxClick">.boxClick</option>
+           <option value="#corporateprofile">#corporateprofile</option>
+           </datalist>
+      </p>
+      <p>insert tag</p>
+      <p><textarea name="insert_tag_2" cols=40 rows=4><li class="plum">Plumここに任意のHTMLを入れる。2個目</li></textarea></p>
+    </fieldset>
+
+  <input type="submit" value="Post">
+</form>
+  </fieldset>
+
+
+
+
