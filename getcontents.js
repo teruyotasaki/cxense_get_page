@@ -49,8 +49,24 @@ http://qiita.com/armorik83/items/78bd3d785d0a97c82711
         var results_tag = [];
         var h = fs.readFileSync(file,'utf-8');
         $ = cheerio.load(h, {decodeEntities: false});
-        var filepath = path.dirname(file) + '/' + path.basename(file),
+        var filepath = path.dirname(file) + '/' + path.basename(file);
+console.log("org -- " + filepath);
         filepath = filepath.replace("org","new");
+//        var filepathsym = filepath.replace(/.*\/new/,"/var/www/www.dac.co.jp/");
+
+        var filepathsym = '/var/www/www.dac.co.jp/' + filepath.split("/").slice(3).join("/") + "_cp";
+
+
+fs.lstat(filepathsym,function(err, stats){
+  if (stats){
+console.log(stats);
+  fs.unlinkSync(filepathsym);
+  }
+});
+
+
+console.log("new -- " + filepathsym);
+        fs.symlink("/home/tasaki/source/cxense_get_page/" + filepath,filepathsym);
 
 //        if($('#corporateprofile')){
 //          $('#corporateprofile').each(function (idx) {
