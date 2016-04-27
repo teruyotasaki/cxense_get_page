@@ -19,7 +19,7 @@ http://qiita.com/armorik83/items/78bd3d785d0a97c82711
   var insertHtml2 = INSERT_TAG2 || '<li class="plum">Plumここに任意のHTMLを入れる。</li>'
   var keyname1 = KEY1 || '#corporateprofile';
   var keyname2 = KEY2 || '#corporateprofile';
-  console.log("getcontents -- " + keyname1);
+   console.log("getcontents -- " + keyname1);
   console.log("getcontents -- " + insertHtml1);
   console.log("getcontents -- " + keyname2);
   console.log("getcontents -- " + insertHtml2);
